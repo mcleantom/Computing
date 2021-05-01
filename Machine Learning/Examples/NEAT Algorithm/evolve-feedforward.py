@@ -11,7 +11,6 @@ import pickle
 
 import neat
 
-import cart_pole
 import gym
 import numpy as np
 
@@ -26,13 +25,13 @@ def eval_genome(genome, config):
     fitnesses = []
 
     for runs in range(runs_per_net):
-        env = gym.make("CartPole-v0")
+        env = gym.make("CartPole-v1")
         observation = env.reset()
         # Run the given simulation for up to num_steps time steps.
         fitness = 0.0
         done = False
         while not done:
-            action = net.activate(observation)
+            action = np.argmax(net.activate(observation))
             observation, reward, done, info = env.step(action)
             fitness += reward
 

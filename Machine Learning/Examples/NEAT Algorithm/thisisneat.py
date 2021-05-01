@@ -7,7 +7,7 @@ Created on Sat Feb 20 13:41:51 2021
 
 import gym
 
-env = gym.make("CartPole-v0")
+env = gym.make("CartPole-v1")
 observation = env.reset()
 
 print(observation)
